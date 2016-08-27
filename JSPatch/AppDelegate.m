@@ -17,6 +17,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+     [JSPatch startWithAppKey:@"80a4368eec1cb65b"];
+    
+    #ifdef DEBUG
+    [JSPatch setupDevelopment];
+    #endif
+    [JSPatch sync];
+    
+//    //线下使用这个代码，系统会自动查找项目中的main.js文件，然后完成热修复
+//    [JSPatch testScriptInBundle];
     return YES;
 }
 
